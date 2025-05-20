@@ -1,0 +1,89 @@
+---
+format: pdf
+editor: visual
+fontsize: 14pt
+---
+
+## Teorema de Frisch-Waugh-Lovell
+
+Intuição: Queremos verificar o efeito puro de $x$ em $y$, ou seja, queremos "limpar" o efeito de outras variáveis tanto sobre $x$ quanto em $y$.
+
+**Demonstração (livro)**
+
+$x_{ji} = \hat{x}_{ji} + \hat{r}_{ji}$
+
+$\hat{x}_{ji} = \hat{\gamma}_1x_{1i} + ...+ \hat{\gamma}_{j-1}x_{j-1i} + \hat{\gamma}_{j+1}x_{j+1i} + ... + \hat{\gamma}_{k}x_{ki}$
+
+\vspace{1em}
+
+Pelas CPO, sabemos que:
+
+$$
+\sum x_{ji}\hat{u}_i = 0
+$$
+
+Substituindo $x_{ji}$ por $\hat{x}_{ji} + \hat{r}_{ji}$
+
+$$
+\sum (\hat{x}_{ji} + \hat{r}_{ji}) \hat{u}_i = 0
+$$
+
+Livro: "Como $x_j$ é uma combinação linear de $x_1$ a $x_k$ (exceto $x_j$), temos que $\sum \hat{x}_{ji} \hat{u}_i = 0$ (segunda propriedade algébrica do MQO para a eq. auxiliar). Assim, sabemos que:"
+
+$$
+\sum \hat{r}_{ji}\hat{u}_i = 0
+$$
+
+**Dúvida**: Não entendi que propriedade é essa nem como demonstrar.
+
+Continuando... Substituir agora o $\hat{u}_i$ pelo modelo estimado:
+
+$$
+\sum \hat{r}_{ji}(y_i - \hat{\beta}_0 - \hat{\beta}_1x_{1i} - ... - \hat{\beta}_kx_k) = 0
+$$
+
+Ao fazer isso, ficamos com:
+
+$$
+\sum \hat{r}_{ji}y_i - \hat{\beta}_j\sum\hat{r}_{ji}x_{ji}= 0
+$$
+
+**Dúvida**: não entendi porque ao distribuir $\hat{r}_{ji}$ nos demais termos do modelo isso resultou na expressão acima. Por exemplo (vamos distribuir em todos os termos abaixo):
+
+$$
+\sum \hat{r}_{ji}y_i -  \hat{\beta}_0\sum\hat{r}_{ji} -  \hat{\beta}_1\sum\hat{r}_{ji}x_{1i}  - ... - \hat{\beta}_j\sum\hat{r}_{ji}x_{ji}= 0
+$$
+
+\vspace{1em}
+
+No final, ficamos com:
+
+$$
+\sum \hat{r}_{ji}y_i - \hat{\beta}_j\sum\hat{r}_{ji}x_{ji}= 0
+$$
+
+Mas o que aconteceu com $\hat{\beta}_0\sum\hat{r}_{ji}$, $\hat{\beta}_1\sum\hat{r}_{ji}x_{1i}$, etc.? Entendo que zeraram, mas não entendi o porquê.
+
+Continuando...
+
+$$
+\sum \hat{r}_{ji}y_i - \hat{\beta}_j\sum\hat{r}_{ji}x_{ji}= 0
+$$
+
+Livro: "Substituindo $x_{ji} = \hat{x}_{ji} + \hat{r}_{ji}$:"
+
+$$
+\hat{\beta}_j = \frac{\sum\hat{r}_{ji}y_i}{\sum \hat{r}_{ji}^2}
+$$
+
+**Dúvida**: Não entendi porque essa substituição leva ao resultado final. Se substituirmos $x_{ji} = \hat{x}_{ji} + \hat{r}_{ji}$, temos:
+
+$$
+\sum \hat{r}_{ji}y_i - \hat{\beta}_j\sum\hat{r}_{ji}(\hat{x}_{ji} + \hat{r}_{ji})= 0
+$$
+
+$$
+\sum \hat{r}_{ji}y_i - \hat{\beta}_j \sum\hat{r}_{ji}\hat{x}_{ji} + \hat{\beta}_j \sum \hat{r}_{ji}^2= 0
+$$
+
+O termo $\hat{\beta}_j \sum\hat{r}_{ji}\hat{x}_{ji}$ deve ser 0? Se sim, por quê?
